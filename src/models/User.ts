@@ -1,3 +1,4 @@
+import { Attributes } from './Attributes';
 import { EventHandler } from './EventHandler';
 import { Sync } from './Sync';
 
@@ -10,16 +11,11 @@ export interface UserProps {
 const rootUrl = 'http://localhost:3000/users';
 
 export class User {
+	public attributes: Attributes<UserProps>;
 	public events: EventHandler = new EventHandler();
 	public sync: Sync<UserProps> = new Sync<UserProps>(rootUrl);
 
-	constructor(private data: UserProps) {}
-
-	get(propName: string): string | number {
-		return this.data[propName];
-	}
-
-	set(update: UserProps): void {
-		Object.assign(this.data, update);
+	constructor(data: UserProps) {
+		this.attributes = new Attributes<UserProps>(data);
 	}
 }
