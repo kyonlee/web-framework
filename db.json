@@ -2,18 +2,13 @@
   "users": [
     {
       "id": 1,
-      "name": "Kyon",
+      "name": "Alan",
       "age": 23
     },
     {
       "name": "Omar",
       "age": 25,
       "id": 2
-    },
-    {
-      "name": "Omar",
-      "age": 25,
-      "id": 3
     }
   ]
 }
