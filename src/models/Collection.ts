@@ -22,11 +22,13 @@ export class Collection<T, K> {
 			// 	this.models.push(this.deserialize(value));
 			// });
 
-			const fetchData = response.data.map((value: K) => {
-				return this.deserialize(value);
-			});
+			const fetchModels: T[] = response.data.map(
+				(value: K): T => {
+					return this.deserialize(value);
+				}
+			);
 
-			this.models = fetchData;
+			this.models = fetchModels;
 			this.events.trigger('change');
 		});
 	}
